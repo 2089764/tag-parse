@@ -10,7 +10,7 @@ According to different searching condition, there are provide three searching me
 
 根据不同的搜索情况，这里提供了3中搜索方法：
 
-1. **Search for a specifical node 查找某个特定节点:**
+1、**Search for a specifical node 查找某个特定节点:**
 
 It's very fast to search a specifical node, because the class store all tag in a static property(name:$TagSet array type) by reference, and the tag name was used as index.
 
@@ -30,7 +30,7 @@ $p = $TagDomRoot->findOneGlobal('p[id="test"]');
 
 `findOneGlobal()`函数会直接在`$TagSet`中查找，而不是在整颗DOM树。
 
-2. **use path for searching 使用路径进行查找:**
+2、**use path for searching 使用路径进行查找:**
 
 There are two different functions: `find()` and `findGlobal()`.
 
@@ -40,7 +40,7 @@ There are two different functions: `find()` and `findGlobal()`.
 
 `findGlobal()` is used to search in dom tree, but it doesn't traverse all nodes. Because it will use `findOneGlobal()` to find the first matching nodes, and then use `_seek()` to find out weather the node and it's child match the path. It's doesn't traverse all node's child.
 
-`findGlobal()`函数用于在DOM树中查找，但它不会遍历所有节点。因为它会先使用`findOneGlobal()`函数查找第一个匹配的节点，然后调用`_seek()`函数查找该节点的孩子是否符合path。这也不会对节点的所有孩子进行遍历。
+`findGlobal()`函数用于在DOM树中查找，但它不会遍历所有节点。因为它会先使用`findOneGlobal()`函数查找第一个匹配的节点，然后调用`seek()`函数查找该节点的孩子是否符合path。这也不会对节点的所有孩子进行遍历。
 
 ## Valid Query Condition 合法的查询条件
 - - -
