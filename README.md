@@ -17,14 +17,14 @@ It's very fast to search a specifical node, because the class store all tag in a
 查找一个特定节点是非常快的，因为该类将所有标签都存储在一个静态属性（名为：$TagSet array类型）中，并且以标签的名字作为索引。
 
 eg:
-{% highlight php linenos %}
+~~~
 <?php
 require 'TagParse/TagDomRoot.php';
 $html = '<div><p id="test"> some text </p><p>other text</p></div>';
 $TagDomRoot = new TagParse\TagDomRoot($html);
 $p = $TagDomRoot->findOneGlobal('p[id="test"]');
 ?>
-{% endhighlight %}
+~~~
 
 `findOneGlobal()` function will search in `$TagSet` directly, not in dom tree.
 
@@ -42,8 +42,15 @@ There are two different functions: `find()` and `findGlobal()`.
 
 `findGlobal()`函数用于在DOM树中查找，但它不会遍历所有节点。因为它会先使用`findOneGlobal()`函数查找第一个匹配的节点，然后调用`_seek()`函数查找该节点的孩子是否符合path。这也不会对节点的所有孩子进行遍历。
 
+## Valid Query Condition 合法的查询条件
+- - -
+such `tagName[attrName="attrValue" attrName="attrValue" ...] tagName[...] tagName` is valid.Be notice, if a tag's attributes is like `<div class="head nav">`, you can use `div[class="head nav"]` to find this tag, but `div[class="nav head"]` do not. Because I want to speed up input parsing and matching.
+
+例如`tagName[attrName="attrValue" attrName="attrValue" ...] tagName[...] tagName`是合法的。当请注意，如果一个标签的属性像`<div class="head nav">`，你可以通过`div[class="head nav"]`找到它，但是`div[class="nav head"]`却不行。因为我想加快输入解析和查找匹配速度。
+
 ## Node Structure 节点结构
 - - -
+~~~
 `public $tag`:                  string tag name
 `public $plaintext`:            string the text that node contain
 `public $attr`:                 array  node's attributes
@@ -54,6 +61,7 @@ There are two different functions: `find()` and `findGlobal()`.
 `protected static $TagSet`:     array  store all nodes
 `protected static $FoundNode`:  array  store found nodes, it will be array() when find\*() return
 `public static $ErrorTag`:      array  store surplus opening tags or closing tags
+~~~
 
 ## Notice 注意
 - - -
