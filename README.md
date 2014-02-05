@@ -51,16 +51,16 @@ such `tagName[attrName="attrValue" attrName="attrValue" ...] tagName[...] tagNam
 ## Node Structure 节点结构
 - - -
 ~~~
-`public $tag`:                  string tag name
-`public $plaintext`:            string the text that node contain
-`public $attr`:                 array  node's attributes
-`public $parent`:               object node's parent node
-`public $child`:                array  the node's child
-`public $level`:                int    the node's depth level(root node's level is 0)
-`public static $TagParseError`: bool   weather the parsing string contain surplus opening tags or closing tags 
-`protected static $TagSet`:     array  store all nodes
-`protected static $FoundNode`:  array  store found nodes, it will be array() when find\*() return
-`public static $ErrorTag`:      array  store surplus opening tags or closing tags
+public $tag:                  string tag name
+public $plaintext:            string the text that node contain
+public $attr:                 array  node's attributes
+public $parent:               object node's parent node
+public $child:                array  the node's child
+public $level:                int    the node's depth level(root node's level is 0)
+public static $TagParseError: bool   weather the parsing string contain surplus opening tags or closing tags 
+protected static $TagSet:     array  store all nodes
+protected static $FoundNode:  array  store found nodes, it will be array() when find\*() return
+public static $ErrorTag:      array  store surplus opening tags or closing tags
 ~~~
 
 ## Notice 注意
