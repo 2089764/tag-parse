@@ -1,4 +1,7 @@
-## 介绍 Introduction
+同功能类： simple_html_dom
+
+
+## 介绍 Introduction    
 - - -
 This is a php class that used to parse html code and search node.It's efficient.
 
